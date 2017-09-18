@@ -75,8 +75,6 @@ trees in one way or the other. All this would not have been possible without the
 * Danielhk
 * PokeTrainerRed
 * DarkAbhi
-*Joshi
-*Psycho-Mods
 
 ---
 
