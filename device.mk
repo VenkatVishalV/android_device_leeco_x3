@@ -28,7 +28,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-	Snap
+	Snap \
+	libcamera_parameters_ext
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -38,7 +39,7 @@ PRODUCT_PACKAGES += \
 # Torch
 PRODUCT_PACKAGES += \
 	Torch
-
+     
 # Other
 PRODUCT_PACKAGES += \
 	librs_jni \
@@ -93,10 +94,12 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/camera/camerasize.xml:system/etc/camerasize.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+	media.stagefright.legacyencoder=0
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -184,6 +187,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/audio/audio_device.xml:system/etc/audio_device.xml \
+	$(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
 	$(LOCAL_PATH)/configs/audio/audio_em.xml:system/etc/audio_em.xml \
 	$(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
 
@@ -217,7 +221,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/keylayout/synaptics_dsx_i2c.kl:system/usr/keylayout/synaptics_dsx_i2c.kl
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/ril_conf/ecc_list.xml:system/etc/ecc_list.xml
+	$(LOCAL_PATH)/configs/ril_conf/ecc_list.xml:system/etc/ecc_list.xml \
+	$(LOCAL_PATH)/configs/ril_conf/spn-conf.xml:system/etc/spn-conf.xml
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/dhcpcd/dhcpcd-run-hooks:system/etc/dhcpcd/dhcpcd-run-hooks \
@@ -244,6 +249,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
+PRODUCT_PACKAGES += \
+        fingerprint.default
+ 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
@@ -278,7 +286,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	gps.mt6795 \
 	libcurl
-
+	
 # Mediaserver with system group
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/etc/init/mediaserver.rc:system/etc/init/mediaserver.rc
@@ -294,3 +302,9 @@ PRODUCT_PACKAGES += \
 # Engineering mode
 PRODUCT_PACKAGES += \
 	EngineerMode
+
+# Vulkan
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
+
