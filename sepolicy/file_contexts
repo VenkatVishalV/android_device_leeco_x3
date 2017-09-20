@@ -562,7 +562,6 @@
 #/sys/kernel/charge_levels/charge_level_usb u:object_r:fast_charge_sysfs:s0
 #/sys/bus/i2c/devices/i2c-2/2-004b/wake_gesture_enable          u:object_r:smartwake_sysfs:s0
 /sys/kernel/ccci(/.*)?                                          u:object_r:sysfs_ccci:s0
-/protect_s/properties(/.*)?                                     u:object_r:persist_property_file:s0
 /dev/block/platform(/.*)? u:object_r:platformblk_device:s0
 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq		u:object_r:perf_control_sysfs:s0
 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq		u:object_r:perf_control_sysfs:s0
