@@ -31,6 +31,9 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 # SDcard
 PRODUCT_CHARACTERISTICS := nosdcard
 
+#Maintainer Name
+PRODUCT_PROPERTY_OVERRIDES += ro.aex.maintainer="VenkatVV"
+
 # Google client ID property.
 PRODUCT_GMS_CLIENTID_BASE := android-leeco
 
