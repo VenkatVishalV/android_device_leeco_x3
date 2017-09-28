@@ -208,3 +208,7 @@ media.stagefright.less-secure=true
 # ClearMotion
 persist.sys.display.clearMotion=1
 ro.mtk_clearmotion_support=1
+
+# LegendROM
+ro.legendrom.version=19.0
+ 
