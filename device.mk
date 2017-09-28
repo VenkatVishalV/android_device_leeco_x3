@@ -318,7 +318,7 @@ PRODUCT_COPY_FILES += \
  # OTA
  PRODUCT_PROPERTY_OVERRIDES += \
      persist.ota.romname=LegendROM \
-     persist.ota.version=20170814 \
+     persist.ota.version=20170928 \
      persist.ota.manifest=https://raw.githubusercontent.com/LegendROM-N/android_extras_ota/cm-14.1/leeco_x3.xml
  
 
