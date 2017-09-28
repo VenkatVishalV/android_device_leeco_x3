@@ -1,1 +1,1 @@
-add_lunch_combo lineage_x3-userdebug
+add_lunch_combo legend_x3-userdebug
