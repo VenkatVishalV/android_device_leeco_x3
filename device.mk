@@ -307,4 +307,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
+ 
+ # USB
+ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+     sys.usb.config=mtp,adb \
+     persist.sys.isUsbOtgEnabled=true \
+     persist.sys.usb.config=mtp,adb \
+     ro.adb.secure=0
+ 
+ # OTA
+ PRODUCT_PROPERTY_OVERRIDES += \
+     persist.ota.romname=LegendROM \
+     persist.ota.version=20170814 \
+     persist.ota.manifest=https://raw.githubusercontent.com/LegendROM-N/android_extras_ota/cm-14.1/leeco_x3.xml
+ 
 
