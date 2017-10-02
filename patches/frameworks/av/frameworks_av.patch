@@ -132,9 +132,7 @@ index 3051406..da4326d 100644
 +    status_t acquire_buffer(MediaBuffer **buffer, bool nonBlocking = false);
 +    status_t acquire_buffer(
 +            MediaBuffer **buffer, bool nonBlocking, size_t requestedSize);
-+#else
-     status_t acquire_buffer(
-             MediaBuffer **buffer, bool nonBlocking = false, size_t requestedSize = 0);
++#else  
 +#endif
  
      size_t buffers() const { return mBuffers.size(); }
