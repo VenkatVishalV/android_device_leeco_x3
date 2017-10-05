@@ -92,7 +92,6 @@ public class BtList extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.btlist);
         // mThisActivity = this; // no sense
 
         mModuleList = new ArrayList<String>();
