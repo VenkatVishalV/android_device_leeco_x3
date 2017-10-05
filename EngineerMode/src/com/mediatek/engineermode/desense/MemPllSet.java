@@ -56,11 +56,7 @@ public class MemPllSet extends Activity {
             finish();
             return;
         }
-        setContentView(R.layout.desense_mempll_set);
-        mTvCurrent = (TextView) findViewById(R.id.desense_mempll_tv_current);
-        mBtn200to266 = (Button) findViewById(R.id.desense_mempll_btn_convert266);
         mBtn200to266.setOnClickListener(mClickListener);
-        mBtn266to200 = (Button) findViewById(R.id.desense_mempll_btn_convert200);
         mBtn266to200.setOnClickListener(mClickListener);
         if (ChipSupport.MTK_6592_SUPPORT == ChipSupport.getChip()) {
             mValue0 = 266;
