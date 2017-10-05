@@ -48,11 +48,6 @@ public class DesenseActivity extends Activity implements OnItemClickListener {
             items.add(ITEMS[i]);
         }
 
-        if (!MemPllSet.isSupport()) {
-            items.remove(ITEMS[2]);
-        }
-
-
         if (!DesensePllsActivity.isSupport()) {
             items.remove(ITEMS[0]);
         }
@@ -71,8 +66,6 @@ public class DesenseActivity extends Activity implements OnItemClickListener {
                 startActivity(new Intent(this, FreqHoppingSet.class));
             }
 
-        } else if (ITEM_MEMPLL.equals(mListData.get(position))) {
-            startActivity(new Intent(this, MemPllSet.class));
         } else {
             Log.v("@M_" + TAG, "other item is clicked!");
         }
