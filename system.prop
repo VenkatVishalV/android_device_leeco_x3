@@ -87,6 +87,7 @@ ro.mediatek.chip_ver=S01
 ro.mediatek.version.release=alps-mp-m0.mp11-V1_vz6795.lwt.m
 ro.mediatek.platform=MT6795
 persist.radio.multisim.config=dsds
+persist.camera.HAL3.enabled=1
 persist.gemini.sim_num=2
 ro.gemini.smart_sim_switch=false
 ril.specific.sm_cause=0
