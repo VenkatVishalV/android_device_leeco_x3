@@ -1,0 +1,72 @@
+Author: vishalk17 <vishalkapadi95@gmail.com>
+Date:   Sat Oct 01 08:58:25 2017 +0000
+
+    system_core_patch
+
+diff --git a/init/init.cpp b/init/init.cpp
+index bb6355ae3..8c13422b3 100644
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -83,7 +83,7 @@ static char qemu[32];
+ std::string default_console = "/dev/console";
+ static time_t process_needs_restart_at;
+ 
+-const char *ENV[32];
++const char *ENV[64];
+ 
+ static int epoll_fd = -1;
+ 
+diff --git a/init/init.h b/init/init.h
+index 1da335030..f901b10eb 100644
+--- a/init/init.h
++++ b/init/init.h
+@@ -19,7 +19,7 @@
+ 
+ #include <string>
+ 
+-extern const char *ENV[32];
++extern const char *ENV[64];
+ extern std::string default_console;
+ extern struct selabel_handle *sehandle;
+ extern struct selabel_handle *sehandle_prop;
+
+diff --git a/libcutils/fs_config.c b/libcutils/fs_config.c
+index 5b9d17429..3b0ec25ab 100644
+--- a/libcutils/fs_config.c
++++ b/libcutils/fs_config.c
+@@ -192,8 +192,8 @@ static const struct fs_path_config android_files[] = {
+                                               "system/bin/run-as" },
+ 
+     /* Support FIFO scheduling mode in SurfaceFlinger. */
+-    { 00755, AID_SYSTEM,    AID_GRAPHICS,  CAP_MASK_LONG(CAP_SYS_NICE),
+-                                              "system/bin/surfaceflinger" },
++    /* Disabled for now as this caused LD_PRELOAD and LD_SHIM_LIBS to be sanitized in linker */
++    //{ 00755, AID_SYSTEM,    AID_GRAPHICS,     CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
+ 
+     /* Support hostapd administering a network interface. */
+     { 00755, AID_WIFI,      AID_WIFI,      CAP_MASK_LONG(CAP_NET_ADMIN) |
+diff --git a/liblog/logger_write.c b/liblog/logger_write.c
+index d322c0f0d..e1afa6814 100644
+--- a/liblog/logger_write.c
++++ b/liblog/logger_write.c
+@@ -414,6 +414,7 @@ LIBLOG_ABI_PUBLIC int __android_log_buf_write(int bufID, int prio,
+       (!strcmp(tag, "HTC_RIL") ||
+        !strncmp(tag, "RIL", 3) || /* Any log tag with "RIL" as the prefix */
+        !strncmp(tag, "IMS", 3) || /* Any log tag with "IMS" as the prefix */
++       !strcmp(tag, "ccci_fsd") ||
+        !strcmp(tag, "AT") || !strcmp(tag, "GSM") || !strcmp(tag, "STK") ||
+        !strcmp(tag, "CDMA") || !strcmp(tag, "PHONE") || !strcmp(tag, "SMS"))) {
+     bufID = LOG_ID_RADIO;
+diff --git a/rootdir/init.usb.rc b/rootdir/init.usb.rc
+index 915d159a5..0666e4d63 100644
+--- a/rootdir/init.usb.rc
++++ b/rootdir/init.usb.rc
+@@ -15,7 +15,7 @@ on post-fs-data
+ service adbd /sbin/adbd --root_seclabel=u:r:su:s0
+     class core
+     socket adbd stream 660 system system
+-    disabled
++    #disabled
+     seclabel u:r:adbd:s0
+ 
+ # adbd on at boot in emulator
