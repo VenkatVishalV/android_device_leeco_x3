@@ -29,7 +29,6 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
 	Snap \
-	Camera2 \
 	libcamera_parameters_ext
 
 # Charger
@@ -40,7 +39,7 @@ PRODUCT_PACKAGES += \
 # Torch
 PRODUCT_PACKAGES += \
 	Torch
-     
+
 # Other
 PRODUCT_PACKAGES += \
 	librs_jni \
