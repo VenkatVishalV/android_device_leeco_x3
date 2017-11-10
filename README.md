@@ -6,4 +6,4 @@ This branch is device tree for building LineageOS 15 Rom for Leeco 1S/eco.
 ---
 
 # Build Information
-It still doesn't boot.
+This doesn't boot yet.
