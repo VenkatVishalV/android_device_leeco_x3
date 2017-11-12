@@ -17,15 +17,6 @@ index 68969cf64..56d76a0f3 100644
  
  const char CameraParameters::TRUE[] = "true";
  const char CameraParameters::FALSE[] = "false";
-@@ -130,6 +133,8 @@ const char CameraParameters::FLASH_MODE_AUTO[] = "auto";
- const char CameraParameters::FLASH_MODE_ON[] = "on";
- const char CameraParameters::FLASH_MODE_RED_EYE[] = "red-eye";
- const char CameraParameters::FLASH_MODE_TORCH[] = "torch";
-+const char CameraParameters::FLASH_MODE_TORCH1[] = "torch1";
-+const char CameraParameters::FLASH_MODE_TORCH2[] = "torch2";
- 
- // Values for scene mode settings.
- const char CameraParameters::SCENE_MODE_AUTO[] = "auto";
 diff --git a/camera/cameraserver/cameraserver.rc b/camera/cameraserver/cameraserver.rc
 index fea5a1d5c..08277d674 100644
 --- a/camera/cameraserver/cameraserver.rc
