@@ -59,7 +59,8 @@ BOARD_DISABLE_HW_ID_MATCH_CHECK := true;
 #BOARD_GLOBAL_CFLAGS += -Wno-gnu-array-member-paren-init
 
 # Kernel
-
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_USES_64_BIT_BINDER := true
 TARGET_IS_64_BIT := true
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
