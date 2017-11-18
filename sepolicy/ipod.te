@@ -99,3 +99,9 @@ allow ipod misc_device:chr_file { open read write };
 allow ipod self:capability { chown sys_admin };
 allow ipod mtd_device:blk_file { read write open };
 allow ipod ctl_ipo_swap_prop:property_service set;
+
+# Date : WK15.44
+# Operation : Migration
+# Purpose : RGX 1.5 DDK requires client to have fifo R/W and sync_device permission
+allow ipod surfaceflinger:fifo_file rw_file_perms;
+allow ipod sw_sync_device:chr_file { read write getattr open ioctl };

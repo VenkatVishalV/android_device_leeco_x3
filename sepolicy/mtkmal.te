@@ -1,5 +1,5 @@
 # ==============================================
-# Policy File of /system/bin/mtkmal Executable File 
+# Policy File of /system/bin/mtkmal Executable File
 
 # ==============================================
 # Type Declaration
@@ -14,7 +14,7 @@ type mtkmal_exec, exec_type, file_type;
 init_daemon_domain(mtkmal)
 
 # Date : WK15.33
-# Operation : Migration 
+# Operation : Migration
 # Purpose : for MTKMAL
 allow mtkmal socket_device:sock_file write;
 
@@ -44,8 +44,6 @@ allow mtkmal ctl_volte_imcb_prop:property_service set;
 allow mtkmal ctl_volte_ua_prop:property_service set;
 allow mtkmal ctl_volte_stack_prop:property_service set;
 allow mtkmal volte_prop:property_service set;
-allow mtkmal ril_mux_report_case_prop:property_service set;
-allow mtkmal radio_prop:property_service set;
 
 allow mtkmal self:capability { setuid setgid };
 
@@ -74,6 +72,3 @@ allow mtkmal wifi_data_file:file create_file_perms;
 #allow wpa mtkmal:unix_stream_socket connectto;
 #allow wpa mtkmal:unix_dgram_socket sendto;
 #allow wpa init:unix_dgram_socket sendto;
-
-#for timer
-allow mtkmal self:capability2 wake_alarm;

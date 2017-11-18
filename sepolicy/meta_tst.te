@@ -1,5 +1,5 @@
 # ==============================================
-# Policy File of /system/bin/meta_tst Executable File 
+# Policy File of /system/bin/meta_tst Executable File
 
 
 # ==============================================
@@ -36,6 +36,8 @@ allow meta_tst nvdata_file:dir { write read open add_name remove_name search cre
 allow meta_tst nvdata_file:file { setattr read create write getattr unlink open append };
 allow meta_tst nvram_device:chr_file { read write open ioctl };
 allow meta_tst nvram_device:blk_file { read write open };
+allow meta_tst cct_data_file:dir { write read open add_name remove_name search create getattr setattr };
+allow meta_tst cct_data_file:file { setattr read create write getattr unlink open append };
 allow meta_tst mmcblk0_block_device:blk_file { getattr ioctl read write open };
 allow meta_tst userdata_block_device:blk_file rw_file_perms;
 allow meta_tst cache_block_device:blk_file rw_file_perms;
@@ -56,6 +58,7 @@ allow meta_tst wmtWifi_device:chr_file { write open };
 allow meta_tst FM50AF_device:chr_file { read write ioctl open };
 allow meta_tst AD5820AF_device:chr_file { read write ioctl open };
 allow meta_tst DW9714AF_device:chr_file { read write ioctl open };
+allow meta_tst DW9761BAF_device:chr_file { read write ioctl open };
 allow meta_tst DW9714A_device:chr_file { read write ioctl open };
 allow meta_tst LC898122AF_device:chr_file { read write ioctl open };
 allow meta_tst LC898212AF_device:chr_file { read write ioctl open };
@@ -86,7 +89,6 @@ allow meta_tst mnld_exec:file execute_no_trans;
 allow meta_tst mnld_device:chr_file { open read write ioctl };
 allow meta_tst property_socket:sock_file write;
 allow meta_tst vold_socket:sock_file write;
-allow meta_tst init:unix_stream_socket connectto;
 allow meta_tst vold:unix_stream_socket connectto;
 #allow meta_tst gps_device:chr_file { read write open };
 allow meta_tst mnld_prop:property_service set;
@@ -94,12 +96,12 @@ allow meta_tst agpsd_data_file:dir search;
 allow meta_tst self:tcp_socket { bind setopt listen accept read write };
 allow meta_tst agpsd_data_file:sock_file write;
 allow meta_tst node:tcp_socket node_bind;
-allow meta_tst powerctl_prop:property_service set;
 allow meta_tst labeledfs:filesystem unmount;
 allow meta_tst nvram_device:blk_file { getattr ioctl };
 allow meta_tst nvdata_device:blk_file { getattr ioctl };
 allow meta_tst mmcblk1_block_device:blk_file rw_file_perms;
 allow meta_tst shell_exec:file execute;
+set_prop(meta_tst, powerctl_prop)
 
 # Date: WK14.45
 # Operation : Migration
@@ -176,7 +178,3 @@ allow meta_tst mnt_user_file:dir search;
 allow meta_tst mnt_user_file:lnk_file read;
 allow meta_tst storage_file:lnk_file read;
 allow meta_tst fuse:file read;
-
-# Date: WK16.02
-# Purpose : for clear nand data
-allow meta_tst mtd_device:chr_file ioctl;

@@ -1,3 +1,0 @@
-# mediadrmserver policy
-allow mediadrmserver rootfs:lnk_file { getattr };
-
