@@ -1,31 +1,5 @@
 diff --git a/init/init.cpp b/init/init.cpp
 index bb6355a..8c13422 100644
---- a/init/init.cpp
-+++ b/init/init.cpp
-@@ -83,7 +83,7 @@ static char qemu[32];
- std::string default_console = "/dev/console";
- static time_t process_needs_restart_at;
- 
--const char *ENV[32];
-+const char *ENV[64];
- 
- static int epoll_fd = -1;
- 
-diff --git a/init/init.h b/init/init.h
-index 1da3350..f901b10 100644
---- a/init/init.h
-+++ b/init/init.h
-@@ -19,7 +19,7 @@
- 
- #include <string>
- 
--extern const char *ENV[32];
-+extern const char *ENV[64];
- extern std::string default_console;
- extern struct selabel_handle *sehandle;
- extern struct selabel_handle *sehandle_prop;
-diff --git a/libnetutils/Android.bp b/libnetutils/Android.bp
-index d63d619..b31ebae 100644
 --- a/libnetutils/Android.bp
 +++ b/libnetutils/Android.bp
 @@ -14,7 +14,11 @@ cc_library_shared {
