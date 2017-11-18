@@ -205,10 +205,6 @@ endif
 # system.prop
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
-# Seccomp Filter
-BOARD_SECCOMP_POLICY := \
-       $(LOCAL_PATH)/seccomp
-       
 # SELinux
 BOARD_SEPOLICY_DIRS := \
     device/leeco/x3/sepolicy
