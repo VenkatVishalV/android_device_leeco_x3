@@ -12,8 +12,8 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-dalv
 # Call hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
-# The gps config appropriate for this device 
-$(call inherit-product, device/common/gps/gps_us_supl.mk) 
+# The gps config appropriate for this device
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 # Vendor
 $(call inherit-product, vendor/leeco/x3/x3-vendor-blobs.mk)
@@ -77,7 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril.config=fakeiccid  \
     persist.call_recording.enabled=true \
-    persist.call_recording.src=1 
+    persist.call_recording.src=1
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -102,8 +102,8 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd \
     wpa_supplicant
- 
-# Media	
+
+# Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
@@ -122,8 +122,8 @@ PRODUCT_PACKAGES += \
     ext4_resize \
     libext2_blkid \
     libext2_uuid_static  \
-    superumount 
-    
+    superumount
+
 PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 # Var patch
@@ -227,7 +227,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/mtk-tpd.kl:system/usr/keylayout/mtk-tpd.kl\
     $(LOCAL_PATH)/configs/keylayout/synaptics_dsx_i2c.kl:system/usr/keylayout/synaptics_dsx_i2c.kl\
     $(LOCAL_PATH)/configs/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
-    
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ril_conf/apns-conf.xml:system/etc/apns-conf.xml \
     $(LOCAL_PATH)/configs/ril_conf/ecc_list.xml:system/etc/ecc_list.xml \
@@ -249,7 +249,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wide-dhcpv6/dhcp6c.script:system/etc/wide-dhcpv6/dhcp6c.script \
     $(LOCAL_PATH)/configs/wide-dhcpv6/dhcp6cctlkey:system/etc/wide-dhcpv6/dhcp6cctlkey \
     $(LOCAL_PATH)/configs/wide-dhcpv6/dhcp6cDNS.conf:system/etc/wide-dhcpv6/dhcp6cDNS.conf \
-    $(LOCAL_PATH)/configs/wide-dhcpv6/dhcp6s.conf:system/etc/wide-dhcpv6/dhcp6s.conf 
+    $(LOCAL_PATH)/configs/wide-dhcpv6/dhcp6s.conf:system/etc/wide-dhcpv6/dhcp6s.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/radvd/radvd.conf:system/etc/radvd/radvd.conf
@@ -265,10 +265,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
-    
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
-    
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
@@ -276,7 +276,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 
 
-# MTK Helpers 
+# MTK Helpers
 PRODUCT_PACKAGES += \
    libccci_util   \
    libmtk_symbols
@@ -292,7 +292,7 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     libion
-    
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.mt6795 \
@@ -300,15 +300,15 @@ PRODUCT_PACKAGES += \
 
 # Mediaserver with system group
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/etc/init/mediaserver.rc:system/etc/init/mediaserver.rc 
-    
+    $(LOCAL_PATH)/etc/init/mediaserver.rc:system/etc/init/mediaserver.rc
+
 # camera legacy
 PRODUCT_PACKAGES += \
     fs_config_files
-    
+
 PRODUCT_PACKAGES += \
     libm4u  \
-    libbwc  
+    libbwc
 
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += libprotobuf-cpp-full
@@ -318,152 +318,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest.xml:system/manifest.xml \
     $(LOCAL_PATH)/compatibility_matrix.xml:system/compatibility_matrix.xml
 
-# Fingerprint Sensor
-PRODUCT_PACKAGES += \
-    fingerprintd \
-    android.hardware.biometrics.fingerprint@2.1-impl
-    
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl 
-    
-# Light HAL
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl
-    
-PRODUCT_PACKAGES += \
-    context_hub.default \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl
-
-# HW Composer
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl
-
-# new gatekeeper HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
-    
-#ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service 
-#endif
-
-# Thermal packages
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0-impl
-
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.soundtrigger@2.0-impl
-    
-# Boot control
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl 
-
-#ifeq ($(ENABLE_TREBLE), true)
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-service
-#endif
-
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
-    android.hardware.bluetooth@1.0-service \
-    android.hardware.contexthub@1.0-service \
-    android.hardware.gnss@1.0-service \
-    android.hardware.drm@1.0-service \
-    android.hardware.light@2.0-service \
-    android.hardware.memtrack@1.0-service \
-    android.hardware.nfc@1.0-service \
-    android.hardware.power@1.0-service \
-    android.hardware.sensors@1.0-service \
-    android.hardware.thermal@1.0-service \
-    android.hardware.vr@1.0-service 
-
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
-#gralloc	
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl 
-	
-#memtrack
-PRODUCT_PACKAGES += \
-	android.hardware.memtrack@1.0-impl
-	
-#drm HAL
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-
-#CAMERA
-PRODUCT_PACKAGES += \
-    camera.device@3.2-impl \
-    android.hardware.camera.provider@2.4-impl \
-
-# Bluetooth HAL
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl
-
-#GNSS HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
-
-#USB HAL
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
-# Test HAL for hwbinder performance benchmark.
-PRODUCT_PACKAGES += \
-    android.hardware.tests.libhwbinder@1.0-impl
-	
-# Test HAL for FMQ performance benchmark.
-PRODUCT_PACKAGES += \
-    android.hardware.tests.msgq@1.0-impl
-	
-# Keymaster HAL
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=26.1.0 \
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0.vndk-sp\
-    android.hardware.graphics.allocator@2.0.vndk-sp\
-    android.hardware.graphics.mapper@2.0.vndk-sp\
-    android.hardware.graphics.common@1.0.vndk-sp\
-    android.hidl.base@1.0.vndk-sp\
-    libhwbinder.vndk-sp\
-    libbase.vndk-sp\
-    libcutils.vndk-sp\
-    libhardware.vndk-sp\
-    libhidlbase.vndk-sp\
-    libhidltransport.vndk-sp\
-    libutils.vndk-sp\
-    libc++.vndk-sp\
-    libRS_internal.vndk-sp\
-    libRSDriver.vndk-sp\
-    libRSCpuRef.vndk-sp\
-    libbcinfo.vndk-sp\
-    libblas.vndk-sp\
-    libft2.vndk-sp\
-    libpng.vndk-sp\
-    libcompiler_rt.vndk-sp\
-    libbacktrace.vndk-sp\
-    libunwind.vndk-sp\
-    liblzma.vndk-sp
-
-PRODUCT_PACKAGES += \
-    PerformanceControl \
-    Stk
-
 # GPS force mode
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.force.gps.mode=gnss
+       persist.force.gps.mode=gnss
+
+# Treble packages
+$(call inherit-product, $(LOCAL_PATH)/treble.mk)
