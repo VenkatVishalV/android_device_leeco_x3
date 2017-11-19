@@ -41,18 +41,16 @@ LOCAL_MODULE := m4u_ut
   
 LOCAL_SHARED_LIBRARIES := libcutils liblog libion
 
-LOCAL_C_INCLUDES+= /m4u
+LOCAL_C_INCLUDES += ../../../m4u
 LOCAL_C_INCLUDES += \
- 	$(MTK_PATH_SOURCE)/kernel/include \
-    $(TOPDIR)/kernel/include \
-    $(TOPDIR)/system/core/include \
-    $(MTK_PATH_SOURCE)/external/include
+	$(MTK_PATH_SOURCE)/kernel/include \
+	$(TOPDIR)/kernel/include \
+	$(TOPDIR)/system/core/include \
+	$(MTK_PATH_SOURCE)/external/include
 
 LOCAL_SHARED_LIBRARIES += libm4u libion_mtk
-  
-  
+
 #LOCAL_STATIC_LIBRARIES := 
 LOCAL_MODULE_TAGS := eng
 #LOCAL_PRELINK_MODULE:=false
 include $(BUILD_EXECUTABLE) 
-

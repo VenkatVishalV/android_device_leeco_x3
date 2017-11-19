@@ -1,6 +1,12 @@
 #
 # system.prop for LeEco Le 1s
 #
+
+# Enable ADB from the begining
+persist.service.adb.enable=1
+persist.service.debuggable=1
+persist.sys.usb.config=mass_storage,adb
+
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
 # MTK, Infinity, 20090720 }
@@ -20,7 +26,7 @@ mediatek.wlan.ctia=0
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 #
-wifi.tethering.interface=wlan0
+wifi.tethering.interface=ap0
 #
 
 ro.opengles.version=196608
@@ -56,7 +62,7 @@ persist.sys.button_jack_profile=volume
 persist.sys.button_jack_switch=0
 
 #default timezone
-persist.sys.defaulttimezone=Europe/Warsaw
+persist.sys.defaulttimezone=Asia/Kolkata
 
 ro.kernel.zio=38,108,105,16
 #ro.kernel.qemu=1
@@ -75,6 +81,7 @@ ro.mtk_perf_response_time=1
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
+persist.camera.HAL3.enabled=1
 ro.mtk_trustonic_tee_support=1
 persist.sys.le_fast_chrg_enable=1
 ro.mediatek.chip_ver=S01
@@ -112,6 +119,8 @@ ro.mtk_gemini_support=1
 persist.radio.gemini_support=1
 ril.current.share_modem=2
 #ro.mtk_audenh_support=1
+ro.mtk_ims_support=0
+ro.mtk_volte_support=0
 ro.mtk_lossless_bt_audio=1
 ro.mtk_bessurround_support=1
 ro.mtk_wapi_support=1
@@ -173,6 +182,8 @@ ro.mtk_lte_support=1
 ro.mtk_safemedia_support=1
 ro.mtk_umts_tdd128_mode=1
 ro.mtk_cam_mav_support=1
+camera.disable_zsl_mode=1
+persist.debug.wfd.enable=1
 ro.mtk_cam_vfb=1
 ro.sim_refresh_reset_by_modem=1
 ro.mtk_external_sim_support=1
@@ -180,6 +191,9 @@ ro.mtk_motion_track_support=1
 ro.mtk_slidevideo_support=1
 ro.mtk_bg_power_saving_support=1
 ro.mtk_bg_power_saving_ui=1
+ro.ril.disable.power.collapse=1
+pm.sleep_mode=1
+wifi.supplicant_scan_interval=360
 ro.sim_me_lock_mode=0
 ro.mtk_dual_mic_support=1
 ro.mtk_is_tablet=0

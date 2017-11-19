@@ -203,3 +203,4 @@ int query_prj_cfg_setting(char name[], char val[], int size)
 	return -1;
 }
 
+
