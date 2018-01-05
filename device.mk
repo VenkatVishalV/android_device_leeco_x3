@@ -48,6 +48,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.allow.mock.location=0 \
+	ro.secure=0 \
+	ro.adb.secure=0 \
 	ro.debuggable=1 \
 	ro.zygote=zygote64_32 \
 	ro.dalvik.vm.native.bridge=0 \
@@ -239,6 +241,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/slp_conf:system/etc/slp_conf \
+	$(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
 	$(LOCAL_PATH)/configs/clatd.conf:system/etc/clatd.conf \
 	$(LOCAL_PATH)/configs/custom.conf:system/etc/custom.conf \
 	$(LOCAL_PATH)/configs/mtklog-config.prop:system/etc/mtklog-config.prop \
@@ -307,4 +310,4 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
-   
+
