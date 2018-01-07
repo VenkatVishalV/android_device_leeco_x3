@@ -47,7 +47,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # MTK Hardware
-#BOARD_USES_MTK_HARDWARE := true
+BOARD_USES_MTK_HARDWARE := true
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 TARGET_KMODULES := true
@@ -114,7 +114,7 @@ BOARD_CONNECTIVITY_VENDOR := MediaTek
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # RIL
-#BOARD_PROVIDES_RILD := true
+BOARD_PROVIDES_RILD := true
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
 
@@ -142,6 +142,10 @@ WIFI_DRIVER_FW_PATH_PARAM := "/dev/wmtWifi"
 WIFI_DRIVER_FW_PATH_STA := STA
 WIFI_DRIVER_FW_PATH_AP := AP
 WIFI_DRIVER_FW_PATH_P2P := P2P
+
+# Fix video autoscaling on old OMX decoders
+TARGET_OMX_LEGACY_RESCALING:= true
+
 
 # Bluetooth
 MTK_BT_SUPPORT := yes
@@ -189,7 +193,12 @@ TARGET_NEEDS_TEXT_RELOCATIONS := true
 
 # Camera
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+BOARD_USES_MTK_MEDIA_PROFILES:= true
+TARGET_HAS_LEGACY_LP_CAM := true
 TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
+USE_CAMERA_STUB := true
+TARGET_CAMERA_APP : Camera2
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
@@ -199,3 +208,16 @@ BOARD_BLUE_LED_PATH := "/sys/class/leds/blue"
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += net.tethering.noprovisioning=true
+
+# Google properties overides
+PRODUCT_PROPERTY_OVERRIDES += \
+keyguard.no_require_sim=true \
+ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
+ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+ro.com.google.clientidbase=android-google \
+ro.com.android.wifi-watchlist=GoogleGuest \
+ro.error.receiver.system.apps=com.google.android.gms \
+ro.setupwizard.enterprise_mode=1 \
+ro.com.android.dataroaming=false \
+net.tethering.noprovisioning=true \
+ro.setupwizard.rotation_locked=true
