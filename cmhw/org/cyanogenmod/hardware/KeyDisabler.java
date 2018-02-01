@@ -1,5 +1,6 @@
-/*
+*
  * Copyright (C) 2014 The CyanogenMod Project
+ *           (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +17,8 @@
 
 package org.cyanogenmod.hardware;
 
-import android.util.Log;
+import org.cyanogenmod.internal.util.FileUtils;
+
 /*
  * Disable capacitive keys
  *
@@ -28,31 +30,24 @@ import android.util.Log;
 
 public class KeyDisabler {
 
-    private static boolean isActive = false;
-    /*
-     * All HAF classes should export this boolean.
-     * Real implementations must, of course, return true
-     */
+    private static String CONTROL_PATH = "/proc/touchpanel/key_disable";
+    private static String FPC_PATH = "/sys/module/fpc1020_tee/parameters/ignor_home_for_ESD";
 
-    public static boolean isSupported() { return true; }
-
-    /*
-     * Are the keys currently blocked?
-     */
+    public static boolean isSupported() {
+        return FileUtils.isFileWritable(CONTROL_PATH) &&
+                   FileUtils.isFileWritable(FPC_PATH);
+    }
 
     public static boolean isActive() {
-        return isActive;
+        return FileUtils.readOneLine(CONTROL_PATH).equals("1") ||
+                   FileUtils.readOneLine(FPC_PATH).equals("1");
     }
-
-    /*
-     * Disable capacitive keys
-     */
 
     public static boolean setActive(boolean state) {
-        //throw new UnsupportedOperationException();
-        isActive = state;
-        Log.i("KeyDisabler", "setActive " + state);
-        return isActive;
-    }
+        String value = state ? "1" : "0";
+        boolean control = FileUtils.writeLine(CONTROL_PATH, value);
+        boolean fpc =  FileUtils.writeLine(FPC_PATH, value);
 
+        return control && fpc;
+    }
 }
