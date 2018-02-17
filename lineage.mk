@@ -1,17 +1,14 @@
-# Check for target product
-ifeq (lineage_x3,$(TARGET_PRODUCT))
-
-LOCAL_PATH := device/leeco/x3
+DEVICE_PATH := device/leeco/x3
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Inherit device configuration
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
-
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk) 
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Inherit device configuration
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := x3
@@ -41,5 +38,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
 	bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
-
-endif

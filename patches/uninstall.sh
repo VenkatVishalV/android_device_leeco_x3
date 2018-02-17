@@ -2,7 +2,7 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="bionic build/make/core build/soong frameworks/av frameworks/base hardware/interfaces system/core"
+dirs="frameworks/base system/core"
 
 for dir in $dirs ; do
 	cd $rootdirectory
@@ -17,4 +17,3 @@ done
 # -----------------------------------
 echo "Changing to build directory..."
 cd $rootdirectory
-© 2017 GitHub, Inc.

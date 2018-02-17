@@ -1,8 +1,3 @@
-Author: vishalk17 <vishalkapadi95@gmail.com>
-Date:   Sat Oct 01 08:58:25 2017 +0000
-
-    Bionic_patch 
-
 diff --git a/libc/Android.mk b/libc/Android.mk
 index 888404cf7..bb18a2282 100644
 --- a/libc/Android.mk

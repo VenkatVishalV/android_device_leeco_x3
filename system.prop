@@ -209,7 +209,7 @@ persist.meta.dumpdata=0
 ro.mtk_md_sbp_custom_value=0
 persist.power.useautobrightadj=true
 ro.com.android.dataroaming=true
-ro.telephony.ril_class=MT6795
+ro.telephony.ril_class=MediaTekRIL
 ro.hardware=mt6795
 #ro.build.system_root_image=true
 media.stagefright.legacyencoder=true
@@ -217,3 +217,7 @@ media.stagefright.less-secure=true
 # ClearMotion
 persist.sys.display.clearMotion=1
 ro.mtk_clearmotion_support=1
+# Storage
+ro.sys.sdcardfs=true
+# Media
+persist.media.treble_omx=false
