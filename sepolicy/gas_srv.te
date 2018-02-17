@@ -30,7 +30,6 @@ allow gas_srv           init:unix_stream_socket             connectto;
 
 #allow gas_srv           debugfs:file                        {getattr read write ioctl open};
 
-
 # For /proc/[pid]/cmdline accessing
 typeattribute           gas_srv                             mlstrustedsubject;
 allow gas_srv           proc:dir                            {search getattr};
@@ -53,3 +52,4 @@ allow platform_app      gas_srv_service:service_manager     find;
 allow gas_srv           sysfs:file			    { read open };
 allow gas_srv           proc:file			    { open ioctl };
 allow gas_srv		rootfs:lnk_file			    { getattr };
+

@@ -1,3 +1,6 @@
+# Check for target product
+ifeq (crdroid_x3,$(TARGET_PRODUCT))
+
 DEVICE_PATH := device/leeco/x3
 
 # Inherit from those products. Most specific first.
@@ -18,7 +21,7 @@ TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_x3
+PRODUCT_NAME := crdroid_x3
 PRODUCT_DEVICE := x3
 PRODUCT_BRAND := LeEco
 PRODUCT_MODEL := Le 1s
@@ -27,6 +30,9 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # SDcard
 PRODUCT_CHARACTERISTICS := nosdcard
+
+# Maintainer Name
+PRODUCT_PROPERTY_OVERRIDES += ro.aex.maintainer="VenkatVV"
 
 # Google client ID property.
 PRODUCT_GMS_CLIENTID_BASE := android-leeco
@@ -38,3 +44,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
 	bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
+
+endif

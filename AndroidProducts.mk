@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/lineage.mk
+	$(LOCAL_DIR)/crdroid_x3.mk

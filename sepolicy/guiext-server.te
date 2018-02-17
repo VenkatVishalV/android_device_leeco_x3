@@ -18,8 +18,6 @@ init_daemon_domain(guiext-server)
 #binder_call({domain -init}, guiext-server)
 #binder_call(guiext-server, {domain -init})
 
-
-
 # to allocate GraphicBuffer
 allow guiext-server surfaceflinger:binder call;
 allow guiext-server surfaceflinger:fd use;
@@ -57,3 +55,4 @@ allow guiext-server surfaceflinger:fifo_file {read write};
 # Nougat
 allow guiext-server rootfs:lnk_file { getattr };
 allow guiext-server ion_device:chr_file { open read write ioctl };
+

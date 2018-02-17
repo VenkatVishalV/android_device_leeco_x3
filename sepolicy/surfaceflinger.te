@@ -78,11 +78,8 @@ allow surfaceflinger mtk_perf_service:service_manager find;
 # Operation : Migration
 # Purpose : allow surfaceflinger to find pq_service
 allow surfaceflinger pq_service:service_manager { find };
+
+# O
 allow surfaceflinger proc:file { write ioctl };
-allow surfaceflinger guiext-server_service:service_manager { find add };
+allow surfaceflinger guiext-server_service:service_manager find;
 
-# boot_mode 
-allow surfaceflinger sysfs_boot_mode:file r_file_perms; 
-
-#dev_info 
-allow surfaceflinger sysfs_devinfo:file r_file_perms; 
